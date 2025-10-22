@@ -1,2 +1,141 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creador de Comida</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f3e9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d35400;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .ingredientes {
+      margin: 20px 0;
+    }
+
+    .ingredientes label {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      background: #ffeaa7;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .ingredientes input[type="checkbox"] {
+      display: none;
+    }
+
+    .ingredientes input[type="checkbox"]:checked + span {
+      background: #fdcb6e;
+      font-weight: bold;
+    }
+
+    #plato {
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff3e0;
+      border-radius: 10px;
+      min-height: 100px;
+    }
+
+    button {
+      background: #e17055;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #d63031;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🍔 Creador de Comida Personalizada</h1>
+    <p>Selecciona tus ingredientes favoritos:</p>
+
+    <div class="ingredientes">
+      <label>
+        <input type="checkbox" value="Lechuga" onchange="actualizarPlato()">
+        <span>Lechuga</span>
+      </label>
+      <label>
+        <input type="checkbox" value="Tomate" onchange="actualizarPlato()">
+        <span>Tomate</span>
+      </label>
+      <label>
+        <input type="checkbox" value="Queso" onchange="actualizarPlato()">
+        <span>Queso</span>
+      </label>
+      <label>
+        <input type="checkbox" value="Carne" onchange="actualizarPlato()">
+        <span>Carne</span>
+      </label>
+      <label>
+        <input type="checkbox" value="Cebolla" onchange="actualizarPlato()">
+        <span>Cebolla</span>
+      </label>
+      <label>
+        <input type="checkbox" value="Pepinillos" onchange="actualizarPlato()">
+        <span>Pepinillos</span>
+      </label>
+    </div>
+
+    <div id="plato">
+      <p>Tu plato aparecerá aquí...</p>
+    </div>
+
+    <button onclick="limpiar()">Limpiar selección</button>
+  </div>
+
+  <script>
+    function actualizarPlato() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      const ingredientes = Array.from(checkboxes).map(cb => cb.value);
+
+      const platoDiv = document.getElementById('plato');
+
+      if (ingredientes.length === 0) {
+        platoDiv.innerHTML = '<p>Tu plato aparecerá aquí...</p>';
+      } else {
+        platoDiv.innerHTML = `
+          <h3>¡Tu comida personalizada!</h3>
+          <p>Ingredientes: <strong>${ingredientes.join(', ')}</strong></p>
+          <p>¡Delicioso! 🍽️</p>
+        `;
+      }
+    }
+
+    function limpiar() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(cb => cb.checked = false);
+      document.getElementById('plato').innerHTML = '<p>Tu plato aparecerá aquí...</p>';
+    }
+  </script>
+
+</body>
+</html>
