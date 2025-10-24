@@ -1,0 +1,606 @@
+PE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro Health - Nutrición Personalizada Impresa</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2a7de1;
+        }
+        
+        .logo span {
+            color: #34c759;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2a7de1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2a7de1 0%, #34c759 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #2a7de1;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Sección Qué es MicroHealth */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2a7de1;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            flex: 1 1 200px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .feature i {
+            font-size: 2rem;
+            color: #34c759;
+            margin-bottom: 15px;
+        }
+        
+        .feature h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+            background-color: #e9f7fe;
+            border-radius: 10px;
+            padding: 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .machine-placeholder {
+            font-size: 5rem;
+            color: #2a7de1;
+            margin-bottom: 20px;
+        }
+        
+        .about-image p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Sección Cómo funciona */
+        .how-it-works {
+            background-color: #f0f7ff;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .step {
+            flex: 1 1 250px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #2a7de1;
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Sección Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .benefit:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #34c759;
+            margin-bottom: 20px;
+        }
+        
+        .benefit h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Sección CTA */
+        .cta {
+            background: linear-gradient(135deg, #2a7de1 0%, #34c759 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: #2a7de1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+        }
+        
+        .footer-column h3 {
+            color: #34c759;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #34c759;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+        }
+        
+        /* Estilos para el botón de descarga */
+        .download-section {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #2a7de1 0%, #34c759 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Micro<span>Health</span></div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#que-es">Qué es</a></li>
+                    <li><a href="#como-funciona">Cómo funciona</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Revolucionando la industria alimentaria</h1>
+            <p>MicroHealth es una máquina que imprime comida nutritiva y personalizada sin agua ni refrigeración, diseñada para cadenas de restaurantes internacionales.</p>
+            <a href="#que-es" class="btn">Descubre más</a>
+        </div>
+    </section>
+
+    <!-- Sección Qué es MicroHealth -->
+    <section class="section" id="que-es">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿QUÉ ES MICROHEALTH?</h2>
+                <p>La solución innovadora para la alimentación del futuro</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nutrición personalizada impresa</h3>
+                    <p>MicroHealth representa un avance revolucionario en la tecnología alimentaria. Nuestra máquina de impresión de comida combina ciencia nutricional e innovación tecnológica para crear alimentos personalizados que satisfacen las necesidades específicas de cada cliente.</p>
+                    <p>Con nuestra tecnología patentada, podemos crear comidas nutritivas sin necesidad de agua ni refrigeración, lo que reduce significativamente el desperdicio de alimentos y los costos operativos para las cadenas de restaurantes.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Comida Personalizada</h4>
+                            <p>Adaptada a necesidades nutricionales específicas</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Sostenible</h4>
+                            <p>Sin agua ni refrigeración necesaria</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Eficiente</h4>
+                            <p>Diseñada para cadenas de restaurantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="machine-placeholder">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Máquina MicroHealth</h3>
+                    <p>Tecnología de vanguardia para impresión de alimentos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cómo funciona -->
+    <section class="section how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-title">
+                <h2>CÓMO FUNCIONA</h2>
+                <p>Un proceso simple y revolucionario en tres pasos</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Selección Personalizada</h3>
+                    <p>Los clientes eligen sus preferencias nutricionales y gustos a través de una interfaz intuitiva.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Impresión de Alimentos</h3>
+                    <p>La máquina MicroHealth crea la comida utilizando ingredientes en polvo especializados.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Disfruta tu Comida</h3>
+                    <p>Recibe tu comida nutritiva y personalizada lista para consumir en minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Beneficios -->
+    <section class="section" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>BENEFICIOS PARA TU RESTAURANTE</h2>
+                <p>Ventajas competitivas que ofrece MicroHealth</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reducción de Costos</h3>
+                    <p>Elimina la necesidad de refrigeración y reduce el desperdicio de alimentos hasta en un 80%.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Personalización Total</h3>
+                    <p>Ofrece a tus clientes comidas adaptadas a sus necesidades dietéticas específicas.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Expansión Internacional</h3>
+                    <p>Diseñada específicamente para cadenas de restaurantes con presencia global.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Eficiencia Operativa</h3>
+                    <p>Prepara comidas en minutos sin necesidad de cocina tradicional.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Tecnología eco-amigable que reduce la huella de carbono de tu restaurante.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Diferenciación Competitiva</h3>
+                    <p>Posiciona tu marca como innovadora y a la vanguardia tecnológica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para revolucionar tu restaurante?</h2>
+            <p>Únete a las cadenas internacionales que ya están implementando la tecnología MicroHealth en sus establecimientos.</p>
+            <a href="#contacto" class="btn btn-light">Solicitar Demostración</a>
+        </div>
+    </section>
+
+    <!-- Sección de Descarga -->
+    <section class="download-section">
+        <div class="container">
+            <h2>Descarga nuestra información corporativa</h2>
+            <p>Obtén nuestro folleto informativo con todos los detalles sobre MicroHealth</p>
+            <a href="#" class="download-btn" id="downloadBtn">
+                <i class="fas fa-download"></i> Descargar PDF
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MicroHealth</h3>
+                    <p>Revolucionando la industria alimentaria con tecnología de impresión de comida nutritiva y personalizada.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#que-es">Qué es MicroHealth</a>
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#beneficios">Beneficios</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Innovación 123, Tech City</p>
+                    <p><i class="fas fa-phone"></i> Teléfono: +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> Email: info@microhealth.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MicroHealth. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para simular la descarga
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('En una implementación real, aquí se descargaría el PDF corporativo de MicroHealth.');
+            // En un caso real, aquí iría el código para descargar un archivo
+            // window.location.href = 'ruta/al/archivo.pdf';
+        });
+    </script>
+</body>
+</html>
